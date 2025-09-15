@@ -1,0 +1,16 @@
+div .UL-Lista{
+    display: grid;
+    gap: 6px;
+}
+div .UL-Lista .Destaque:first-child {
+    background-color: #ffe0b2;
+    font-weight: bold;
+    border-left: 4px solid red;
+    padding: 6px;
+}
+div .UL-Lista .New-Li{
+    background-color: #ffe0b2;
+    font-weight: bold;
+    border-left: 4px solid green;
+    padding: 6px;
+}
