@@ -13,9 +13,13 @@ async function Carregar_Produtos(){
     // Percorre o Array Lista e Joga dentro da variável Produto
     for(let Produto of Lista){
         let New_Li = document.createElement("li");
+        New_Li.classList.add("New-Li", "Destaque"); //Mais de uma Classe
         New_Li.textContent = Produto.Nome;
+        New_Li.ondblclick = () => Editar_Produto(Produto.Nome);
+        New_Li.onclick = () => Mudar_Status(Produto.Nome);
         
         if(Produto.Produto_Sell == true){
+            New_Li.style.textDecoration = "line-through";
             UL_Yes_Sell.appendChild(New_Li);
         } else{
             UL_Not_Sell.appendChild(New_Li);
@@ -31,7 +35,7 @@ document.getElementById("Input-Produto").addEventListener("keydown", function(ev
 });
 
 async function btn_Adicionar(){
-    let 
+    const 
         Input_Produto = document.getElementById("Input-Produto"),
         Limpar_Input_Produto = Input_Produto.value.trim();
     ;
@@ -43,7 +47,31 @@ async function btn_Adicionar(){
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({Limpar_Input_Produto}) // Transforma em Arquivos .json
     });
-
+    
     Input_Produto.value = ''; // Limpa o Campo após Adicionar
+    Carregar_Produtos();
+}
+
+async function Editar_Produto(Nome_Antigo){
+    const
+    Nome_Novo = prompt("Selecionado: " + Nome_Antigo + "\nDigite o Novo Nome do Produto: ")
+    ;
+    await fetch('/Editar', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({Nome_Antigo, Nome_Novo})
+    });
+    
+    Carregar_Produtos();
+}
+
+async function Mudar_Status(Nome_Produto) {
+    
+    await fetch('/Mudar_Status', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({Nome_Produto})
+    });
+
     Carregar_Produtos();
 }
