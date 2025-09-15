@@ -17,10 +17,9 @@ async function Carregar_Produtos(){
         New_Li.textContent = Produto.Nome;
         New_Li.ondblclick = () => Editar_Produto(Produto.Nome);
         New_Li.onclick = () => Mudar_Status(Produto.Nome);
-        
         New_Li.oncontextmenu = (e) => { // Botão Esquerdo | e = Element
             e.preventDefault() // Evita Menu Padrão ser Exibido
-            if(confirm("Deseja Exluir Este Produto?")){
+            if(confirm("Deseja Exluir Este Produto")){
                 Remover_Produto(Produto.Nome);
             };
         }
@@ -89,6 +88,4 @@ async function Remover_Produto(Nome_Produto){
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({Nome_Produto})
     });    
-
-    Carregar_Produtos();
 }
