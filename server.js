@@ -66,6 +66,15 @@ App.post('/Mudar_Status', (req, res) => {
     res.json(Produtos);
 });
 
+App.post('Excluir', (req, res) =>{
+    const 
+        Nome_Produto = req.body.Nome_Produto
+    ;
+
+    Produtos = Produtos.filter(Produto => Produto.Nome !== Nome_Produto);
+    req.json(Produtos);
+});
+
 // Código do Projeto Termina Aqui
 
 
@@ -73,6 +82,6 @@ App.post('/Mudar_Status', (req, res) => {
 // Escuta a Porta!
 App.listen(
     Porta, () =>{
-        console.log("Servidor Conectado ✅");
+        console.log("Servidor Conectado ✅" + "\nLink: http://127.0.0.1:3001/");
     }
 );
