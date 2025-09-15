@@ -3,11 +3,12 @@ const
     Express = require('express'),
     Path = require('path'),
     App = Express(), // Estância do Express
-    Porta = 3000 // Portas Default 80 ou 8080
+    Porta = 3001 // Portas Default 80 ou 8080
 ;
 
 // Para poder Acessar "Servir" de forma Statica, arquivos da Pasta Public
 App.use(Express.static(Path.join(__dirname, 'Public')))
+App.use(Express.json())
 
 // Rotas e Caminhos
 App.get('/', (req, res) =>{
@@ -18,7 +19,19 @@ App.get('/', (req, res) =>{
 
 // Código do Projeto Começa Aqui
 
+let Produtos = [
+    {Nome: "Banana", Produto_Sell: false},
+    {Nome: "Maça", Produto_Sell: true},
+    {Nome: "Bergamota", Produto_Sell: false},
+    {Nome: "Alface", Produto_Sell: true},
+    {Nome: "Uva", Produto_Sell: true}
+];
 
+// Rotas
+App.get('/Produtos', (req, res) =>{
+    //Devolve o que têm dentro de "Produtos"
+    res.json(Produtos);
+});
 
 // Código do Projeto Termina Aqui
 
