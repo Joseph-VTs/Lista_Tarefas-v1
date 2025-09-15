@@ -8,16 +8,26 @@
 </head>
 <body onload="Carregar_Produtos()">
     <h2>Lista de Tarefas com Node JS</h2>
+
     <br><br><br><br>
-    <h3>Produtos da Barraca</h3>
+    <h2>Cadastro de Produtos da Barraca</h2>
+    <input type="text" id="Input-Produto" placeholder="Nome do Produto...">
+    <button onclick="btn_Adicionar()">Adicionar</button>
+
     <br><br><br>
+    <h3>Produtos da Barraca</h3>
 
-    <h3>Yes Sell</h3>
-    <div id="Div-Yes-Sell"></div>
-    <br><br>
-
+    <br>
     <h3>Not Sell</h3>
-    <div id="Div-Not-Sell"></div>
+    <div>
+        <ul id="UL-Not-Sell"></ul>
+    </div>
+    
+    <br><br>
+    <h3>Yes Sell</h3>
+    <div>
+        <ul id="UL-Yes-Sell"></ul>
+    </div>
 
     <br><br><br>
     <footer>
