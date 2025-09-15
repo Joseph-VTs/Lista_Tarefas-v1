@@ -18,6 +18,13 @@ async function Carregar_Produtos(){
         New_Li.ondblclick = () => Editar_Produto(Produto.Nome);
         New_Li.onclick = () => Mudar_Status(Produto.Nome);
         
+        New_Li.oncontextmenu = (e) => { // Botão Esquerdo | e = Element
+            e.preventDefault() // Evita Menu Padrão ser Exibido
+            if(confirm("Deseja Exluir Este Produto?")){
+                Remover_Produto(Produto.Nome);
+            };
+        }
+        
         if(Produto.Produto_Sell == true){
             New_Li.style.textDecoration = "line-through";
             UL_Yes_Sell.appendChild(New_Li);
@@ -72,6 +79,16 @@ async function Mudar_Status(Nome_Produto) {
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({Nome_Produto})
     });
+    
+    Carregar_Produtos();
+}
+
+async function Remover_Produto(Nome_Produto){
+    await fetch('/Excluir', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({Nome_Produto})
+    });    
 
     Carregar_Produtos();
 }
