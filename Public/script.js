@@ -88,4 +88,6 @@ async function Remover_Produto(Nome_Produto){
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({Nome_Produto})
     });    
+
+    Carregar_Produtos();
 }
