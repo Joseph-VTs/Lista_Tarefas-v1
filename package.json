@@ -17,5 +17,8 @@
     "url": "https://github.com/Joseph-VTs/Lista_Tarefas-v1/issues"
   },
   "homepage": "https://github.com/Joseph-VTs/Lista_Tarefas-v1#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
