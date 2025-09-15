@@ -39,6 +39,33 @@ App.post('/Adicionar', (req, res) =>{ //Botão Adicionar do Formulário
     res.json(Produtos);
 });
 
+App.post('/Editar', (req, res) => {
+    const
+        Nome_Antigo = req.body.Nome_Antigo,
+        Nome_Novo = req.body.Nome_Novo
+    ;
+
+    for(let Produto of Produtos){
+        if(Produto.Nome === Nome_Antigo){
+            Produto.Nome = Nome_Novo;
+        }
+    }
+    res.json(Produtos);
+});
+
+App.post('/Mudar_Status', (req, res) => {
+    const
+        Nome_Produto = req.body.Nome_Produto
+    ;
+
+    for(let Produto of Produtos){
+        if(Produto.Nome === Nome_Produto){
+            Produto.Produto_Sell = !Produto.Produto_Sell;
+        }
+    }
+    res.json(Produtos);
+});
+
 // Código do Projeto Termina Aqui
 
 
