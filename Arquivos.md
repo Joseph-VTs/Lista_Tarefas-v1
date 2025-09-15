@@ -10,6 +10,8 @@ serve.js recebe chamadas do Cliente "index.html"
 NPM ou (Node Package Manager)
 
 Rodar servidor server.js -> node server.js -> ctrl + c = parar de rodar o server.js
+Rodar em tempo Real o server.js -> Biblioteca Nodemon -> Instalação de forma global
+    - npm install -g nodemon
 Acessar no Google -> localhost: Número da Porta
 Acessar servidor em outra máquina -> IP da máquina: Número da Porta
 
