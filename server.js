@@ -33,6 +33,12 @@ App.get('/Produtos', (req, res) =>{
     res.json(Produtos);
 });
 
+App.post('/Adicionar', (req, res) =>{ //Botão Adicionar do Formulário
+    let Nome_Produto = req.body.Limpar_Input_Produto;
+    Produtos.push({Nome: Nome_Produto, Produto_Sell: false});
+    res.json(Produtos);
+});
+
 // Código do Projeto Termina Aqui
 
 
